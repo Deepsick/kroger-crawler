@@ -10,7 +10,7 @@
       "description": "URLs to start with.",
       "editor": "requestListSources",
       "prefill": [
-        { "url": "https://apify.com" }
+        { "url": "https://www.kroger.com/search?fulfillment=all&page=1" }
       ]
     }
   },

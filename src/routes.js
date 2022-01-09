@@ -6,8 +6,7 @@ const { utils: { log } } = Apify;
 
 exports.handleStart = async (context, requestQueue) => {
     const { page } = context;
-    // const response = await getInterceptedResponse('https://www.kroger.com/atlas/v1/product/v2/products', page);
-    // log.info(response);
+    page.waitForSelector('.kds-Pagination');
     log.info('page is loaded');
 
     await Apify.utils.enqueueLinks({
@@ -15,7 +14,5 @@ exports.handleStart = async (context, requestQueue) => {
         requestQueue,
         selector: '.kds-Pagination > .kds-Pagination-link',
     });
-
-    // return Apify.pushData(response);
 };
 

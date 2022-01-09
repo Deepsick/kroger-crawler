@@ -6,17 +6,11 @@ const { utils: { log } } = Apify;
 const getInterceptedResponse = (url, page) => {
   return new Promise((resolve) => {
     page.on('response', async (response) => {
-        log.info(response);
-        log.info(response.url());
         if (response.url().startsWith(url)) {
             const body = await response.json();
-            resolve(body);
+            resolve(body.data.products);
         }
     });
-    page.on('request', (request) => {
-        log.info(JSON.stringify(request));
-        log.info(request.url());
-    })
   });
 };
 
