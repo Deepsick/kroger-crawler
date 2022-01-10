@@ -1,22 +1,6 @@
-const Apify = require('apify');
+const findByText = async (text, tag, page) => {
+    const nodes = await page.$x(`//${tag}[contains(text(), '${text}')]`);
+    return nodes.length !== 0 ? nodes[0] : null;
+  };
 
-
-const { utils: { log } } = Apify;
-
-const getInterceptedResponse = (url, page) => {
-  return new Promise((resolve) => {
-    page.on('response', async (response) => {
-        if (response.url().startsWith(url)) {
-            const body = await response.json();
-            resolve(body.data.products);
-        }
-    });
-  });
-};
-
-const deleteCookies = async (page, url) => {
-    const cookies = await page.cookies(url);
-    return page.deleteCookie(...cookies);
-};
-
-module.exports = { getInterceptedResponse, deleteCookies };
+module.exports = { findByText };
