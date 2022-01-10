@@ -2,6 +2,15 @@
 
 Grab all the available information for each product from the [target website](https://www.kroger.com).
 
+## Usage
+
+NodeJs packaging and dependency management tool npm should be preinstalled.
+Make sure that the version of Node `>=16`
+
+1. Rename `.env-example` to `.env`
+2. Fill in all properties in the `.env` file
+3. Type `apify run` in the terminal
+
 ## Json product example
 ```
 {
