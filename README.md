@@ -9,9 +9,18 @@ Make sure that the version of Node `>=16`
 
 1. Rename `.env-example` to `.env`
 2. Fill in all properties in the `.env` file
-3. Type `apify run` in the terminal
+3. Add `INPUT.json` file and fill it according to the input schema. The URL from the search should be used
+4. Run `yarn` to install dependencies
+5. Type `apify run` in the terminal
 
-## Json product example
+## Input file example
+```
+{
+  "url": "https://www.kroger.com/search?fulfillment=all&page=1"
+}
+```
+
+## Output Json product example
 ```
 {
   "url": "https://www.kroger.com/p/strawberries/0003338320027",
